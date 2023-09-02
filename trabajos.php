@@ -1,4 +1,7 @@
-<?php include('header.php')?>
+<?php 
+    session_start();
+    include('header.php')
+?>
 
 <article class="first">
 <section class="main-font container d-flex justify-content-center pt-2">

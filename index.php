@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'header.php';
 include 'main-hero.php';
 include 'footer.php';
@@ -40,8 +41,7 @@ include 'footer.php';
       </div>
     </section>
     <section
-      class="container-fluid main-font section-servicios bg-dark.bg-gradient"
-    >
+      class="container-fluid main-font section-servicios bg-dark.bg-gradient">
       <h2 class="bg-dark.bg-gradient text-white">Servicios</h2>
     </section>
 

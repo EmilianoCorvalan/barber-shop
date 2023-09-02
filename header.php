@@ -14,6 +14,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +42,8 @@
           
           <ul class="nav nav-pills main-font responsive-font fw-lighter">
             <?php 
-            if ($_SERVER['REQUEST_URI'] === '/barber-shop/index.php') {?>
+              if ($_SERVER['REQUEST_URI'] === '/barber-shop/index.php') {
+            ?>
               <li class="nav-item">
               <a
                 href="login.php"
@@ -49,18 +51,18 @@
                 aria-current="page"
                 >Login</a>
               </li>
-            <?php }
-            else{?>
+            <?php 
+              }
+              else{
+            ?>
               <li class="nav-item">
               <a
                 href="index.php"
                 class="nav-link text-white links-hover"
                 aria-current="page"
                 >Inicio</a>
-              </li><?php
-            }
-            ?>
-            
+              </li>
+            <?php } ?>
             <li class="nav-item">
               <a href="servicios.php" class="nav-link text-white links-hover">Servicios</a>
             </li>
@@ -69,12 +71,26 @@
             </li>
             <li class="nav-item">
               <a href="trabajos.php" class="nav-link text-white links-hover"
-                >Nuestros trabajos</a
-              >
+                >Nuestros trabajos</a>
             </li>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
+            <?php 
+              if (isset($_SESSION['email'])) {
+              ?>
             </li>
+            <li class="nav-item">
+              <a href="controlador/controlador-logout.php" class="nav-link text-white links-hover">Logout</a>
+            </li>
+            <?php 
+              }
+              if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
+            ?>  
+            </li>
+            <li class="nav-item">
+              <a href="registroturnos.php" class="nav-link text-white links-hover">Registro Turnos</a>
+            </li>
+            <?php } ?>
           </ul>
         </header>
       </div>

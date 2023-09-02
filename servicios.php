@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+include 'header.php';
+?>
 
 <article class="first px-4 text-white main-font responsive-font container-fluid">
     <section class="container">

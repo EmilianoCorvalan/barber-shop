@@ -1,14 +1,21 @@
-<?php include 'header.php'; ?>
+<?php 
+    session_start();
+    include 'header.php'; 
+    if (isset($_SESSION['email'])){ 
+        include 'conexion.php';
+    ?>
 
 <section class="first main-font container-fluid d-flex justify-content-center text-light">
     <div class="col-12 col-md-8 col-lg-6 col-xl-6">
     <div class="px-4">
-        <h4 class="mt-4">Turnos</h4>
+        <?php 
+            echo '<h4 class="mt-4">Bienvenido '. ucfirst($_SESSION['nombre']). '</h4>';
+        ?>
         <h6>Completa el siguiente formulario para reservar tu turno</h6>
         <hr>
     </div>
     
-    <form action="conexion.php" method="post">
+    <form method="post">
         <div class="row px-4">
             <div class="col">
                 <h5 class="">Tus datos</h5>
@@ -19,7 +26,7 @@
                                     <span class="input-group-text">+54</span>
                             </div>
                             <input class="form-control required m-1" type="tel" placeholder="Cód area" name="codArea" id="codArea" value="11" minlength="2" maxlength="4">
-                            <input class="form-control required m-1" type="tel" placeholder="XXXXXXXX" maxlength="8" minlength="5" id="campoValidacion">
+                            <input class="form-control required m-1" type="tel" placeholder="XXXXXXXX" name="telefono" id="campoValidacion" minlength="5" maxlength="8">
                         </div>
                      <small>Sin 0 ni 15. Ingrese sólo números.</small>
                 </div>
@@ -48,11 +55,11 @@
                 <div class="form-group">
                     <label class="control-label">Servicio</label>
                     <div class="form-control">
-                        <select name="" id="" class="form-control" >
-                            <option class="bg-light" value="">Barba</option>
-                            <option class="bg-light" value="">Corte</option>
-                            <option class="bg-light" value="">Corte infantil</option>
-                            <option class="bg-light" value="">Pelo y barba</option>
+                        <select name="servicio" id="servicio" class="form-control" > <!--ESTO SE PUEDE MEJORAR-->
+                            <option class="bg-light" value="1">Barba</option>
+                            <option class="bg-light" value="2">Corte</option>
+                            <option class="bg-light" value="3">Corte infantil</option>
+                            <option class="bg-light" value="4">Pelo y barba</option>
                         </select>
                     </div>
                 </div>
@@ -68,7 +75,7 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label class="control-label">Hora</label>
+                    <label class="control-label">Hora</label><!--ESTO SE PUEDE COMPLETAR CON UN CICLO FOR DE PHP????-->
                     <select id="horas" name="horas" class="form-control required">
                         <option value="10:00" class="bg-light">10:00</option>
                         <option value="10:30" class="bg-light">10:30</option>
@@ -95,15 +102,22 @@
             </div>
         </div>
 
+        <?php
+            include("conexion.php");
+            include("controlador/controlador-turnos.php");
+        ?>
+
         <div class="row p-4 my-2">
             <div class="col">
-                <input type="submit" class="btn btn-primary d-block mx-auto " value=" Confirmar turno ">
+                <input type="submit" class="btn btn-primary d-block mx-auto " value="Confirmar turno" name="btnTurno">
             </div>
         </div>
         
     </form>
     </div>
 </section>
-
-
-<?php include 'footer.php'; ?>
+<?php 
+} else {
+    header("location:login.php");
+}
+include 'footer.php'; ?>

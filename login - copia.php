@@ -1,10 +1,10 @@
 <?php 
     session_start();
-    include('header.php');   
+    include('header.php');
 ?>
 
 <section class="first main-font container-fluid text-white d-flex justify-content-center">
-<?php if (!isset($_SESSION['email'])){?>
+    
     <div class="px-4 col-12 col-md-6 col-lg-6 col-xl-4">
         <h3 class="mt-4 text-center">Iniciar sesión</h3>
 
@@ -32,8 +32,5 @@
         </form>
     </div>
 </section>
-<?php } else {
-    header("location:turnos.php");
-}
 
-include('footer.php');?>
+<?php include('footer.php');?>
