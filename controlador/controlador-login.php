@@ -18,7 +18,7 @@ if(!empty($_POST["btnLogin"])){
             if ($_SESSION['nivel']==='1'){
                 header("location:turnos.php");
             } else if ($_SESSION['nivel']=='2'){
-                header("location:registroturnos.php");
+                header("location:admin.php");
             }
         }
         else{

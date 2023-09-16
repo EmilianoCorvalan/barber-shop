@@ -1,0 +1,7 @@
+<h1 class="text-center">Gestion de turnos</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt debitis, sapiente incidunt aut quibusdam earum laboriosam, omnis, porro dignissimos voluptates ad vero consectetur reprehenderit eius? Corporis quo aliquid nostrum quae!
+Ipsa adipisci omnis voluptatem sit quis beatae, deleniti necessitatibus unde quae facilis repudiandae voluptates dicta eius dolores modi eveniet exercitationem, excepturi ut maxime culpa voluptatum officia sequi sed. Animi, eveniet.
+Sit, quas eveniet tenetur adipisci debitis error expedita? Molestiae laudantium consequuntur aut libero neque itaque consequatur repellat dicta provident culpa ad, eaque rerum voluptates beatae eius ducimus nihil nemo? Dolor?
+Voluptatum voluptate atque omnis aliquid modi laudantium nesciunt illo eum hic unde recusandae asperiores, doloribus consectetur et obcaecati magnam consequuntur exercitationem tempore reprehenderit veritatis iste sed. Corporis earum nostrum nihil?
+Vel error modi tempora fuga necessitatibus soluta unde, dolores alias, totam, quas repellendus vitae! Assumenda voluptatum sit dolorum debitis ipsum eveniet unde nostrum, quos beatae eaque sequi libero placeat at!
+Nam aperiam aliquid, ex nulla maiores repellat vel repellendus tempora de!</p>

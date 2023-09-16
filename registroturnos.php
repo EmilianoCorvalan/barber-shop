@@ -1,6 +1,5 @@
 <?php 
 session_start();
-include('header.php');
 include('conexion.php');
 $date ="'".date('Y-m-d')."'";
 $new_query = "SELECT turnos.idturno, turnos.fecha, turnos.time, turnos.idservicio, servicios.tiposervicio, turnos.cod_area, turnos.telefono, 
@@ -9,7 +8,7 @@ $new_query = "SELECT turnos.idturno, turnos.fecha, turnos.time, turnos.idservici
 $query = $conn->query($new_query);
 
 ?>
-<section class="first main-font container-fluid text-white d-flex justify-content-center">
+<section class="main-font container-fluid text-white d-flex justify-content-center">
 
     <div class="container px-4 col-12 col-md-10 col-lg-10 col-xl-10">
         <h3 class="mt-4 text-center">Turnos del 
