@@ -1,13 +1,16 @@
-<?php include('header.php') ?>
+session
+<?php 
+session_start();
+include('header.php') ?>
 
 <div class="first">
 <h1 class="h2 d-flex justify-content-center text-white">Panel de control</h1>
 <div class="navbarAdmin d-flex justify-content-center">
-        <a href="#" class="m-2" onclick="mostrarContenido('home')">Turnos</a>
-        <a href="#" class="m-2" onclick="mostrarContenido('turnos')">Barberos</a>
-        <a href="#" class="m-2" onclick="mostrarContenido('sucursales')">Sucursales</a>
-        <a href="#" class="m-2" onclick="mostrarContenido('barberos')">Servicios</a>
-        <a href="#" class="m-2" onclick="mostrarContenido('resenas')">Reseñas</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('home')">Turnos</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('turnos')">Barberos</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('sucursales')">Sucursales</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('barberos')">Servicios</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('resenas')">Reseñas</a>
 </div>
     <div class="">
     <div class="contenido" id="home">

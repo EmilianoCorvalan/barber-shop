@@ -75,20 +75,22 @@
             </li>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
+            
+            <?php 
+              
+              if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
+            ?>  
+            </li>
+            <li class="nav-item">
+              <a href="admin.php" class="nav-link text-white links-hover">Panel de control</a>
+            </li>
+            <?php } ?>
             <?php 
               if (isset($_SESSION['email'])) {
               ?>
             </li>
             <li class="nav-item">
-              <a href="controlador/controlador-logout.php" class="nav-link text-white links-hover">Logout</a>
-            </li>
-            <?php 
-              }
-              if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
-            ?>  
-            </li>
-            <li class="nav-item">
-              <a href="registroturnos.php" class="nav-link text-white links-hover">Registro Turnos</a>
+              <a href="controlador/controlador-logout.php" class="nav-link text-danger links-hover">Cerrar Sesion</a>
             </li>
             <?php } ?>
           </ul>

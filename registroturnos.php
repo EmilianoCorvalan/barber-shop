@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 include('conexion.php');
 $date ="'".date('Y-m-d')."'";
 $new_query = "SELECT turnos.idturno, turnos.fecha, turnos.time, turnos.idservicio, servicios.tiposervicio, turnos.cod_area, turnos.telefono, 
@@ -24,10 +24,10 @@ $query = $conn->query($new_query);
                     <td scope="col">Email</td>
                     <td scope="col">Nombre</td>
                     <td scope="col">Apellido</td>
-                    <tdscope="col">Servicio</td>
-                    <tdscope="col">Codigo de area</td>
-                    <tdscope="col">Telefono</td>
-                    <td></td>
+                    <td scope="col">Servicio</td>
+                    <td scope="col">Codigo de area</td>
+                    <td scope="col">Telefono</td>
+                    <td scope="col">Acciones</td>
                 </thead>
                 <tbody>
                     <?php

@@ -61,23 +61,6 @@ label {
 
 /* Pantalla administrador */
 
-.navbarAdmin {
-    width: 200px;
-    background-color: #333;
-    padding: 15px;
-    color: white;
-}
-
-.navbarAdmin a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
-.navbarAdmin a:hover {
-    background-color: #a70f0f;
-}
 
 .contenido {
     flex-grow: 1;

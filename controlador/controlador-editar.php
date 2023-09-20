@@ -22,7 +22,7 @@ if(!empty($_POST['btnEditar'])){
             //print_r($_POST);
             $query = $conn->query ("INSERT INTO turnos (fecha,time,mail,idservicio,cod_area,telefono) VALUES ('$fecha','$time','$email','$idservicio','$cod_area','$telefono')");
             //echo 'termino la query';
-            print "<script>window.setTimeout(function() { window.location = 'registroturnos.php' }, 1000);</script>"; 
+            print "<script>window.setTimeout(function() { window.location = 'admin.php' }, 1000);</script>"; 
         } catch (Exception $e){
             echo  $e->getMessage();
             echo '<div class="alert alert-danger mt-4">Error al seleccionar el turno</div>';

@@ -23,7 +23,7 @@ if(!empty($_POST['btnTurno'])){
         
         try {
             $query = $conn->query ("INSERT INTO turnos (fecha,time,mail,idservicio,cod_area,telefono) VALUES ('$fecha','$time','$email','$idservicio','$cod_area','$telefono')");
-            mail($email, $subject,$message);
+            //mail($email, $subject,$message);
             echo '<script>
                     alert("Su turno fue gestionado correctamente. Muchas gracias!")
                   </script>';
