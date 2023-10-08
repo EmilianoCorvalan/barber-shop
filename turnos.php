@@ -59,7 +59,9 @@
                             <option class="bg-light" value="1">Barba</option>
                             <option class="bg-light" value="2">Corte</option>
                             <option class="bg-light" value="3">Corte infantil</option>
-                            <option class="bg-light" value="4">Pelo y barba</option>
+                            <option class="bg-light" value="4">Corte y barba</option>
+                            <option class="bg-light" value="5">Color</option>
+                            <option class="bg-light" value="6">Mechas</option>
                         </select>
                     </div>
                 </div>

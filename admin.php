@@ -1,11 +1,10 @@
-session
 <?php 
 session_start();
 include('header.php') ?>
 
 <div class="first">
 <h1 class="h2 d-flex justify-content-center text-white">Panel de control</h1>
-<div class="navbarAdmin d-flex justify-content-center">
+<div class="d-flex justify-content-center">
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('home')">Turnos</a>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('turnos')">Barberos</a>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('sucursales')">Sucursales</a>
