@@ -73,6 +73,14 @@
               <a href="trabajos.php" class="nav-link text-white links-hover"
                 >Nuestros trabajos</a>
             </li>
+            <?php 
+              if (isset($_SESSION['email'])) {
+              ?>
+            </li>
+            <li class="nav-item">
+              <a href="historial.php" class="nav-link text-white links-hover">Historial</a>
+            </li>
+            <?php } ?>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
             
