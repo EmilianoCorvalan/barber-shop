@@ -5,7 +5,10 @@ include('header.php');
 
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
-    $historial = $conn->query("SELECT * FROM turnos WHERE mail = '$email'");
+    $historial = $conn->query("SELECT turnos.idturno, turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor
+                              FROM turnos
+                              JOIN servicios ON turnos.idservicio = servicios.idservicio
+                              WHERE turnos.mail = '$email'");
 ?>
 <div class="container-fluid first main-font">
     <h4 class="text-white text-center mt-2">Bienvenido <?php echo ucfirst($_SESSION['nombre']);?></h4>
@@ -20,6 +23,8 @@ if (isset($_SESSION['email'])) {
         echo '<th>ID Turno</th>';
         echo '<th>Fecha</th>';
         echo '<th>Hora</th>';
+        echo '<th>Tipo de Servicio</th>';
+        echo '<th>Valor</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
@@ -29,6 +34,8 @@ if (isset($_SESSION['email'])) {
             echo '<td>' . $row["idturno"] . '</td>';
             echo '<td>' . $row["fecha"] . '</td>';
             echo '<td>' . $row["time"] . '</td>';
+            echo '<td>' . $row["tiposervicio"] . '</td>';
+            echo '<td>' . $row["valor"] . '</td>';
             echo '</tr>';
         }
         echo '</tbody>';
