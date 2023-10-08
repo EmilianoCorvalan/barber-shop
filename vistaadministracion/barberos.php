@@ -1,21 +1,45 @@
-<h1>Barberos</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores in sapiente et officia consequuntur quidem odit eum voluptatum assumenda voluptatem, soluta suscipit, sint molestias reiciendis, animi nobis voluptas recusandae explicabo.
-Laborum voluptatem corrupti ex consequuntur sapiente dolorum, architecto ipsum cum doloribus nesciunt fugit repellat ratione consequatur eum dignissimos excepturi possimus ab. Fugit voluptas quis incidunt. Deserunt maxime aliquam iure commodi?
-Voluptates, aliquid, enim, consectetur commodi earum vitae nulla beatae doloribus ipsum nisi tempore soluta officia fuga temporibus minus delectus ullam. Numquam iste eveniet voluptatibus repellat velit sint vitae enim fugiat!
-Vel reprehenderit necessitatibus delectus omnis, dolorum architecto fuga dolor sequi reiciendis nobis. Architecto iure deleniti aut incidunt consequuntur perspiciatis, aspernatur nostrum, voluptates tempora delectus quas, blanditiis maiores iusto perferendis sint.
-Aut vel repudiandae quas amet optio, nobis qui illo perferendis dolores magni assumenda odio aliquid explicabo nulla maiores eius? Officiis magni nihil sed atque ipsum laborum excepturi nisi repellendus dolorum.
-Modi rem temporibus, dignissimos itaque eaque at ipsa in nesciunt eos debitis ut deleniti animi ipsam fuga cupiditate? Ipsum dolorum veniam adipisci quam quia iusto molestiae iste asperiores commodi consectetur.
-Esse, dolores animi quia repudiandae unde, recusandae quo ut suscipit totam in dolor ducimus, cum nisi veniam perferendis aperiam omnis debitis deserunt autem. Sapiente qui obcaecati suscipit a itaque nobis?
-Impedit unde quis pariatur. Optio praesentium dignissimos distinctio deserunt, in molestiae placeat vero cum accusamus ab aliquid excepturi quas corrupti beatae blanditiis numquam architecto sit atque autem hic, possimus odit.
-Ab quis et dolore, adipisci consequatur quidem magni, perspiciatis similique doloribus, esse commodi expedita atque repellendus quia temporibus eaque. Iusto repudiandae debitis accusantium voluptatem magni suscipit minima eaque? Nulla, amet?
-Odio minima impedit architecto id tempora, officiis, aliquid beatae magni ut illo assumenda cupiditate. Neque rerum sapiente ratione, iure similique molestiae optio nulla est qui nemo fugit beatae aspernatur quaerat!
-Voluptatum ex repellendus neque corrupti, tenetur repellat dolores eos explicabo eveniet veritatis reprehenderit fugiat ut facere adipisci, libero suscipit tempora harum est et rerum ad, quo earum vero? Ipsam, architecto!
-Rerum autem ex neque obcaecati facere quaerat nesciunt nisi officiis fugit. Rerum facilis explicabo natus aliquid voluptas molestiae similique totam provident eum harum amet adipisci beatae qui odio, iusto excepturi.
-Quis deleniti accusamus, aperiam iusto alias sequi ea magni animi, vero fuga expedita harum necessitatibus sapiente earum consequatur sed libero ex distinctio eveniet praesentium, aspernatur beatae qui. Placeat, aspernatur numquam.
-Itaque accusamus labore unde, nobis architecto dolore, aut voluptate maiores quibusdam nihil corporis et totam est nostrum officiis libero eius voluptatibus adipisci molestias quia. Corrupti quos vel similique fugit assumenda.
-Ea enim iusto perspiciatis voluptatem fuga deserunt culpa consequatur adipisci cumque dolore, dolores facilis assumenda tempore porro saepe magni eveniet voluptates odio nam est mollitia. Eveniet reiciendis inventore sit perspiciatis.
-Autem eveniet eum omnis natus explicabo non amet facilis quibusdam, vero dolore enim fugiat hic dolorem saepe molestiae numquam odio mollitia distinctio iusto tempore dolorum temporibus molestias rerum! Rem, consequuntur?
-Nam, excepturi debitis! Placeat dolores nihil doloremque, vel eveniet ratione voluptatibus nostrum nemo illo exercitationem magni voluptas delectus quis quidem deleniti numquam ad iusto mollitia. Delectus quia aut tenetur veritatis.
-Quaerat tempora eveniet delectus tempore, suscipit, odio sint reiciendis id ducimus, repellendus distinctio necessitatibus minus molestias nam doloribus nemo in dolor pariatur blanditiis? Molestiae, dignissimos tempore itaque ex officia error.
-Expedita excepturi quisquam quibusdam quidem consequatur dolore commodi deserunt accusamus, architecto delectus porro qui nam in nisi id dolorum ipsam facere magni! Maxime, veritatis asperiores minus quae laudantium ipsa eaque.
-Dicta, libero. Nisi repudiandae iusto reprehenderit explicabo nostrum eos, quibusdam rem, expedita reiciendis assumenda dolorem nemo accusantium asperiores architecto neque necessitatibus pariatur similique distinctio praesentium blanditiis cupiditate deserunt? Voluptate, nisi?</p>
+<div class="container-fluid">
+    <div class="container">
+    <h4 class="text-center text-white mb-2">Barberos</h4>
+        <?php 
+            $barberos = $conn->query("SELECT barberos.*, sucursales.nombre_sucursal AS nombre_sucursal
+                                        FROM barberos JOIN sucursales ON barberos.id_sucursal = sucursales.id_sucursal");
+        if ($barberos->num_rows > 0){
+            echo '<table class="table table-dark table-hover">';
+            echo '<thead>';
+            echo '<tr>';
+            echo '<th>ID Empleado</th>';
+            echo '<th>Nombre</th>';
+            echo '<th>Apellido</th>';
+            echo '<th>Direccion</th>';
+            echo '<th>Telefono</th>';
+            echo '<th>Especialidad</th>';
+            echo '<th>Sucursal</th>';
+            echo '</tr>';
+            echo '</thead>';
+            echo '<tbody>';
+
+        while($row = $barberos->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>' . $row["idbarbero"] . '</td>';
+            echo '<td>' . $row["nombre"] . '</td>';
+            echo '<td>' . $row["apellido"] . '</td>';
+            echo '<td>' . $row["direccion"] . '</td>';
+            echo '<td>' . $row["telefono"] . '</td>';
+            echo '<td>' . $row["especialidad"] . '</td>';
+            echo '<td>' . $row["nombre_sucursal"] . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody>';
+        echo '</table>';
+    } else {
+        echo "No se encontraron barberos.";
+        } ?>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-success text-white m-3" >Agregar Barbero</button>
+            <button class="btn btn-danger text-white m-3">Borrar Barbero</button>
+        </div>
+
+    </div>
+</div>
