@@ -1,1 +1,1 @@
-<h1>Servicios</h1>
+<h2 class="text-white text-center">En construccion</h2>
