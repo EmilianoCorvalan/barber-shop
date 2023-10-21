@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="container">
-    <h4 class="text-center text-white mb-2">Barberos</h4>
-        <?php 
-            $barberos = $conn->query("SELECT barberos.*, sucursales.nombre_sucursal AS nombre_sucursal
+        <h4 class="text-center text-white mb-2">Barberos</h4>
+        <?php
+        $barberos = $conn->query("SELECT barberos.*, sucursales.nombre_sucursal AS nombre_sucursal
                                         FROM barberos JOIN sucursales ON barberos.id_sucursal = sucursales.id_sucursal");
-        if ($barberos->num_rows > 0){
+        if ($barberos->num_rows > 0) {
             echo '<table class="table table-dark table-hover">';
             echo '<thead>';
             echo '<tr>';
@@ -14,30 +14,32 @@
             echo '<th>Direccion</th>';
             echo '<th>Telefono</th>';
             echo '<th>Especialidad</th>';
+            echo '<th>DNI</th>';
             echo '<th>Sucursal</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
 
-        while($row = $barberos->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row["idbarbero"] . '</td>';
-            echo '<td>' . $row["nombre"] . '</td>';
-            echo '<td>' . $row["apellido"] . '</td>';
-            echo '<td>' . $row["direccion"] . '</td>';
-            echo '<td>' . $row["telefono"] . '</td>';
-            echo '<td>' . $row["especialidad"] . '</td>';
-            echo '<td>' . $row["nombre_sucursal"] . '</td>';
-            echo '</tr>';
-        }
-        echo '</tbody>';
-        echo '</table>';
-    } else {
-        echo "No se encontraron barberos.";
+            while ($row = $barberos->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row["idbarbero"] . '</td>';
+                echo '<td>' . $row["nombre"] . '</td>';
+                echo '<td>' . $row["apellido"] . '</td>';
+                echo '<td>' . $row["direccion"] . '</td>';
+                echo '<td>' . $row["telefono"] . '</td>';
+                echo '<td>' . $row["especialidad"] . '</td>';
+                echo '<td>' . $row['dni'] . '</td>';
+                echo '<td>' . $row["nombre_sucursal"] . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody>';
+            echo '</table>';
+        } else {
+            echo "No se encontraron barberos.";
         } ?>
 
         <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-success text-white m-3" >Agregar Barbero</button>
+            <a href="agregarbarberos.php" class="btn btn-success text-white m-3">Agregar Barbero</a>
             <button class="btn btn-danger text-white m-3">Borrar Barbero</button>
         </div>
 
