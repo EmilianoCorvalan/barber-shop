@@ -46,8 +46,8 @@ if (isset($_SESSION['email'])) {
                         <div class="form-group">
                             <label class="control-label">Categoria</label>
                             <div class=" form-control">
-                                <select class="form-control bg-light">
-                                    <option>Peluqueria</option>
+                                <select class="form-control bg-light" disabled>
+                                    <option>Barberia y peluqueria</option>
                                 </select>
                             </div>
                         </div>
@@ -72,14 +72,14 @@ if (isset($_SESSION['email'])) {
                 <div class="row px-4">
                     <div class="col-6">
                         <div class="form-group">
-                            <label class="control-label">Fecha</label>
+                            <label class="control-label">Fecha del turno</label>
                             <input type="date" name="fecha" id="fecha" placeholder="DD/MM/AAAA" class="form-control required" min=<?php $hoy = date("Y-m-d");
                                                                                                                                     echo $hoy; ?>>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label class="control-label">Hora</label><!--ESTO SE PUEDE COMPLETAR CON UN CICLO FOR DE PHP????-->
+                            <label class="control-label">Hora del turno</label><!--ESTO SE PUEDE COMPLETAR CON UN CICLO FOR DE PHP????-->
                             <select id="horas" name="horas" class="form-control required">
                                 <option value="10:00" class="bg-light">10:00</option>
                                 <option value="10:30" class="bg-light">10:30</option>
