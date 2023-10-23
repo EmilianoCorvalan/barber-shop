@@ -38,7 +38,7 @@ include 'conexion.php';
                 <div class="col">
                     <div class="form-group">
                         <label class="control-label text-white">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" required>
+                        <input type="text" class="form-control" name="telefono" minlength="8" maxlength="10" required>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ include 'conexion.php';
                 <div class="col">
                     <div class="form-group">
                         <label class="control-label text-white">DNI</label>
-                        <input type="text" class="form-control" name="dni" required>
+                        <input type="text" class="form-control" name="dni" minlength="8" maxlength="8" required>
                     </div>
                 </div>
             </div>
@@ -70,8 +70,9 @@ include 'conexion.php';
             </div>
 
             <div class="row p-4 my-2">
-                <div class="col">
-                    <input type="submit" class="btn btn-primary d-block mx-auto " value="Agregar Barbero" name="btnAgregarBarbero">
+                <div class="col d-flex justify-content-center gap-4">
+                    <input type="submit" class="btn btn-success" value="Agregar Barbero" name="btnAgregarBarbero">
+                    <a href="admin.php" class="btn btn-outline-warning text-white">Volver al panel de control</a>
                 </div>
             </div>
         </form>

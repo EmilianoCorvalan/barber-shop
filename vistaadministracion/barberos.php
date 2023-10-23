@@ -16,6 +16,7 @@
             echo '<th>Especialidad</th>';
             echo '<th>DNI</th>';
             echo '<th>Sucursal</th>';
+            echo '<th>Acciones</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
@@ -30,6 +31,11 @@
                 echo '<td>' . $row["especialidad"] . '</td>';
                 echo '<td>' . $row['dni'] . '</td>';
                 echo '<td>' . $row["nombre_sucursal"] . '</td>';
+                echo '<td> <div class="d-flex justify-content-center bg-dark text-white">
+                                <a href="editarbarbero.php?idbarbero=' . $row['idbarbero'] . '" class="mx-2 link-primary bg-dark"><i class="bi bi-pencil-fill bg-dark"></i></a>
+                                <a href="borrarbarbero.php?idbarbero=' . $row['idbarbero'] . '" class="mx-2 link-danger bg-dark"><i class="bi bi-trash icon bg-dark"></i></a>
+                            </div>
+                        </td>';
                 echo '</tr>';
             }
             echo '</tbody>';
@@ -40,7 +46,6 @@
 
         <div class="d-flex justify-content-center mt-4">
             <a href="agregarbarberos.php" class="btn btn-success text-white m-3">Agregar Barbero</a>
-            <button class="btn btn-danger text-white m-3">Borrar Barbero</button>
         </div>
 
     </div>
