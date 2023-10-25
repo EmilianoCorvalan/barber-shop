@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["idbarbero"])) {
                 <div class="col">
                     <div class="form-group">
                         <label class="control-label text-white">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" value="<?php echo $telefono; ?>" required>
+                        <input type="text" class="form-control" name="telefono" value="<?php echo $telefono; ?>" minlength="8" maxlength="10" required>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["idbarbero"])) {
                 <div class="col">
                     <div class="form-group">
                         <label class="control-label text-white">DNI</label>
-                        <input type="text" class="form-control" name="dni" value="<?php echo $dni; ?>" required>
+                        <input type="text" class="form-control" name="dni" value="<?php echo $dni; ?>" minlength="8" maxlength="8" required>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnActualizarBarbero"]
                  Será redigido al panel de control');
                 window.location.href = 'admin.php';
               </script>";
-        
     } else {
         echo "<script>
                 alert('Error al actualizar el barbero.
@@ -148,6 +147,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnActualizarBarbero"]
 
     // Cierra la declaración
     $stmt->close();
-    }
-    exit();
+}
+exit();
 ?>
