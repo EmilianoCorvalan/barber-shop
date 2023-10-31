@@ -34,8 +34,7 @@
         } ?>
 
         <div class="d-flex justify-content-center mt-4">
-
-            <a href="agregarservicio.php" class="btn btn-success text-white m-3">Agregar Servicio</a>
+            <a href="agregarservicios.php" class="btn btn-success text-white m-3">Agregar Servicio</a>
         </div>
 
     </div>
