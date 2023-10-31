@@ -9,17 +9,18 @@
 <section class="first main-font container-fluid d-flex justify-content-center text-light">
     <div class="col-12 col-md-8 col-lg-6 col-xl-6">
     <div class="px-4">
-        <h6>¿Seguro quiere borrar el siguiente turno?</h6>
+        <h2 class="mt-2 text-center">¿Seguro quiere borrar el siguiente turno?</h2>
+        <br>
 
         <?php 
             $id = $_GET['idturno'];
             $_POST['idturno'] = $id;
             $query = $conn->query ("SELECT * FROM turnos WHERE idturno = '".$id."'");
             $turno = mysqli_fetch_array($query);
-            echo "<h2>Se borrara el turno del dia: </h2>";
-            echo "<h2>".$turno['fecha']."</h2>";
-            echo "<h2>reservado a las: </h2>";
-            echo "<h2>".$turno['time']."</h2>";?>
+            echo "<h3 class='text-center'>Se borrara el turno del dia: </h3>";
+            echo "<h2 class='text-center bg-warning bg-gradient bg-opacity-75'>".$turno['fecha']."</h2>";
+            echo "<h2 class='text-center'>Reservado a las: </h2>";
+            echo "<h3 class='text-center bg-warning bg-gradient bg-opacity-75'>".$turno['time']."</h3>";?>
 
         <form method="POST">
 

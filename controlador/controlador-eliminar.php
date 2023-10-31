@@ -5,8 +5,10 @@ if(!empty($_POST['btnEliminar'])){
     } else {
         try {
             $id= $_POST['idturno'];
-            $borrar = $conn->query ("DELETE FROM turnos WHERE idturno = $id"); 
-            print "<script>window.setTimeout(function() { window.location = 'registroturnos.php' }, 3000);</script>";
+            $borrar = $conn->query ("DELETE FROM turnos WHERE idturno = $id");
+            print "<script>alert('Turno borrado exitosamente')</script>"; 
+            print "<script>window.setTimeout(function() { window.location = 'admin.php' }, 50);</script>";
+            
         } catch (Exception $e){
             echo  $e->getMessage();
             echo '<div class="alert alert-danger mt-4">Error al seleccionar el turno</div>';
