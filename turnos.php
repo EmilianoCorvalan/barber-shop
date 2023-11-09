@@ -57,12 +57,19 @@ if (isset($_SESSION['email'])) {
                             <label class="control-label">Servicio</label>
                             <div class="form-control">
                                 <select name="servicio" id="servicio" class="form-control"> <!--ESTO SE PUEDE MEJORAR-->
-                                    <option class="bg-light" value="1">Barba</option>
-                                    <option class="bg-light" value="2">Corte</option>
-                                    <option class="bg-light" value="3">Corte infantil</option>
-                                    <option class="bg-light" value="4">Corte y barba</option>
-                                    <option class="bg-light" value="5">Color</option>
-                                    <option class="bg-light" value="6">Mechas</option>
+                                    <?php
+                                    $servicios = $conn->query("SELECT * FROM servicios");
+                                    if ($servicios->num_rows > 0) {
+                                        while ($row = $servicios->fetch_assoc()) {
+                                            $idServicio = $row["idservicio"];
+                                            $nombreServicio = $row["tiposervicio"];
+                                            echo '<option class="bg-light" value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                        }
+                                    } else {
+                                        echo "No se encontraron servicios.";
+                                    }
+                                    ?>
+
                                 </select>
                             </div>
                         </div>
@@ -132,12 +139,12 @@ if (isset($_SESSION['email'])) {
             const regexCodArea = /^\d{2,4}$/;
             const regexTelefono = /^\d{6,8}$/;
 
-            if (!regexCodArea.test(codArea)){
+            if (!regexCodArea.test(codArea)) {
                 notificacion.innerHTML = "El codigo de area debe tener entre 2 y 4 numeros";
                 notificacion.style.display = "block";
                 return false;
             }
-            if (!regexTelefono.test(telefono)){
+            if (!regexTelefono.test(telefono)) {
                 notificacion.innerHTML = "El numero de telefono debe tener entre 6 y 8 numeros";
                 notificacion.style.display = "block";
                 return false
