@@ -83,14 +83,20 @@
             <?php } ?>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
-            
-            <?php 
-              
+            <?php  
               if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
             ?>  
             </li>
             <li class="nav-item">
               <a href="admin.php" class="nav-link text-white links-hover">Panel de control</a>
+            </li>
+            <?php } ?>
+            <?php 
+              if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
+            ?>  
+            </li>
+            <li class="nav-item">
+              <a href="informesMain.php" class="nav-link text-white links-hover">Informes</a>
             </li>
             <?php } ?>
             <?php 

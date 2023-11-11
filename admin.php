@@ -12,28 +12,28 @@ include('header.php') ?>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('resenas')">Reseñas</a>
 </div>
     <div class="">
-    <div class="contenido" id="home">
-        <!-- Contenido de la página turnos-->
-        <?php include('registroturnos.php')?>
+        <div class="contenido" id="home">
+            <!-- Contenido de la página turnos-->
+            <?php include('registroturnos.php')?>
+        </div>
+        <div class="contenido" id="turnos" style="display:none;">
+            <!-- Contenido de la página Barberos -->
+            <?php include('vistaadministracion/barberos.php')?>
+        </div>
+        <div class="contenido" id="sucursales" style="display:none;">
+            <!-- Contenido de la página Sucursales -->
+            <?php include('vistaadministracion/sucursales.php')?>
+        </div>
+        <div class="contenido" id="barberos" style="display:none;">
+            <!-- Contenido de la página Servicios -->
+            <?php include('vistaadministracion/serviciosAdm.php')?>
+        </div>
+        <div class="contenido" id="resenas" style="display:none;">
+            <!-- Contenido de la página Reseñas -->
+            <?php include('vistaadministracion/resenias.php')?>
+        </div>
     </div>
-    <div class="contenido" id="turnos" style="display:none;">
-        <!-- Contenido de la página Barberos -->
-        <?php include('vistaadministracion/barberos.php')?>
-    </div>
-    <div class="contenido" id="sucursales" style="display:none;">
-        <!-- Contenido de la página Sucursales -->
-        <?php include('vistaadministracion/sucursales.php')?>
-    </div>
-    <div class="contenido" id="barberos" style="display:none;">
-        <!-- Contenido de la página Servicios -->
-        <?php include('vistaadministracion/serviciosAdm.php')?>
-    </div>
-    <div class="contenido" id="resenas" style="display:none;">
-        <!-- Contenido de la página Reseñas -->
-        <?php include('vistaadministracion/resenias.php')?>
-    </div>
-    </div>
-    </div>
+</div>
 
 
     <script>
@@ -43,6 +43,5 @@ include('header.php') ?>
                 contenidos[i].style.display = "none";
             }
             document.getElementById(id).style.display = "block";
-}
-
+        }
     </script>
