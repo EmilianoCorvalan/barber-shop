@@ -4,11 +4,17 @@ if(!empty($_POST['btnEditar'])){
         empty($_POST['telefono']) or
         empty($_POST['servicio']) or
         empty($_POST['fecha']) or
-        empty($_POST['horas']) or
-        empty($_POST['barbero']))
+        empty($_POST['horas']) )//or
+        //empty($_POST['barbero'])) FALLA AL VALIDAR EL BARBERO... QUE ONDA!!??
         {
         echo '<div class="alert alert-danger mt-4">Uno o mas campos estan vacios</div>';
-        var_dump($_POST);
+        /*var_dump($_POST);
+        print($_POST['codArea'].' cod<br>');
+        print($_POST['telefono'].' telefono<br>');
+        print($_POST['servicio'].' servicio<br>');
+        print($_POST['fecha'].' fecha<br>');
+        print($_POST['horas'].' hora<br>');
+        print($_POST['barbero'].' barbero<br>');*/
 
     } else {//(fecha,time,mail,idServicio,cod_area,telefono)
         $fecha = $_POST['fecha'];
