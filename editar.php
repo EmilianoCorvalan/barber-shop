@@ -16,7 +16,7 @@ if (isset($_SESSION['email'])) {
     $codArea = $turnoactual['5'];
     $telefono = $turnoactual['6'];
     $barbero = $turnoactual['7'];
-    var_dump ($turnoactual);
+    //var_dump ($turnoactual);
 
 ?>
 
