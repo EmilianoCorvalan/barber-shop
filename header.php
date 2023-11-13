@@ -92,14 +92,6 @@
             </li>
             <?php } ?>
             <?php 
-              if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
-            ?>  
-            </li>
-            <li class="nav-item">
-              <a href="informesMain.php" class="nav-link text-white links-hover">Informes</a>
-            </li>
-            <?php } ?>
-            <?php 
               if (isset($_SESSION['email'])) {
               ?>
             </li>
