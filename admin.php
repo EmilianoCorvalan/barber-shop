@@ -10,6 +10,7 @@ include('header.php') ?>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('sucursales')">Sucursales</a>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('barberos')">Servicios</a>
         <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('resenas')">Reseñas</a>
+        <a href="#" class="m-2 text-decoration-none" onclick="mostrarContenido('informes')">Informes</a>
 </div>
     <div class="">
         <div class="contenido" id="home">
@@ -31,6 +32,10 @@ include('header.php') ?>
         <div class="contenido" id="resenas" style="display:none;">
             <!-- Contenido de la página Reseñas -->
             <?php include('vistaadministracion/resenias.php')?>
+        </div>
+        <div class="contenido" id="informes" style="display:none;">
+            <!-- Contenido de la página Reseñas -->
+            <?php include('./informesMain.php')?>
         </div>
     </div>
 </div>

@@ -54,6 +54,25 @@ if (isset($_SESSION['email'])) {
                     </div>
                     <div class="col-12 py-4">
                         <div class="form-group">
+
+                        <label class="control-label">Barbero</label>
+                            <div class="form-control">
+                                <select name="barbero" id="barbero" class="form-control"> <!--ESTO SE PUEDE MEJORAR-->
+                                    <?php
+                                    $barberos = $conn->query("SELECT * FROM barberos");
+                                    if ($barberos->num_rows > 0) {
+                                        while ($row = $barberos->fetch_assoc()) {
+                                            $idbarbero = $row["idbarbero"];
+                                            $nombrebarbero = $row["nombre"]." ".$row['apellido'];
+                                            echo '<option class="bg-light" value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                        }
+                                    } else {
+                                        echo "No se encontraron barberos.";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
                             <label class="control-label">Servicio</label>
                             <div class="form-control">
                                 <select name="servicio" id="servicio" class="form-control"> <!--ESTO SE PUEDE MEJORAR-->
