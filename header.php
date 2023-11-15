@@ -83,9 +83,7 @@
             <?php } ?>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
-            
-            <?php 
-              
+            <?php  
               if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
             ?>  
             </li>

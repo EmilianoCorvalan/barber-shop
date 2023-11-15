@@ -3,7 +3,20 @@ session_start();
 include 'header.php';
 if (isset($_SESSION['email'])) {
     include 'conexion.php';
-
+    //var_dump($_GET);
+    //print ($_GET['idturno']);
+    $idturno = $_GET['idturno'];
+    $new_query = "SELECT * FROM `turnos` WHERE idturno=$idturno LIMIT 1";
+    $query = $conn->query($new_query);
+    $turnoactual = mysqli_fetch_row($query);
+    $fecha = $turnoactual['1'];
+    $hora = $turnoactual['2'];
+    $mail = $turnoactual['3'];
+    $servicio = $turnoactual['4'];
+    $codArea = $turnoactual['5'];
+    $telefono = $turnoactual['6'];
+    $barbero = $turnoactual['7'];
+    //var_dump ($turnoactual);
 
 ?>
 
@@ -28,8 +41,8 @@ if (isset($_SESSION['email'])) {
                                 <div class="input-group-prepend m-1">
                                     <span class="input-group-text">+54</span>
                                 </div>
-                                <input class="form-control required m-1" type="tel" placeholder="Cód area" name="codArea" id="codArea" value="11" minlength="2" maxlength="4">
-                                <input class="form-control required m-1" type="tel" placeholder="XXXXXXXX" name="telefono" id="campoValidacion" minlength="5" maxlength="8">
+                                <input class="form-control required m-1" type="tel" placeholder="Cód area" name="codArea" id="codArea" value="<?php print($codArea);?>" minlength="2" maxlength="4">
+                                <input class="form-control required m-1" type="tel" placeholder="XXXXXXXX" name="telefono" id="campoValidacion" value="<?php print($telefono);?>" minlength="5" maxlength="8">
                             </div>
                             <small>Sin 0 ni 15. Ingrese sólo números.</small>
                         </div>
@@ -56,6 +69,29 @@ if (isset($_SESSION['email'])) {
                     </div>
                     <div class="col-12 py-4">
                         <div class="form-group">
+
+                            <label class="control-label">Barbero</label>
+                            <div class="form-control">
+                                <select name="barbero" id="barbero" class="form-control"> <!--ESTO SE PUEDE MEJORAR-->
+                                    <?php
+                                    $barberos = $conn->query("SELECT * FROM barberos");
+                                    if ($barberos->num_rows > 0) {
+                                        while ($row = $barberos->fetch_assoc()) {
+                                            $selected = ' ';
+                                            $idbarbero = $row["idbarbero"];
+                                            $nombrebarbero = $row["nombre"]." ".$row['apellido'];
+                                            if ($idbarbero == $barbero){
+                                                $selected = 'selected="selected"';
+                                            }
+                                            echo '<option class="bg-light" '.$selected.' value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                        }
+                                    } else {
+                                        echo "No se encontraron servicios.";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
                             <label class="control-label">Servicio</label>
                             <div class="form-control">
                                 <select name="servicio" id="servicio" class="form-control"> <!--ESTO SE PUEDE MEJORAR-->
@@ -64,9 +100,13 @@ if (isset($_SESSION['email'])) {
 
                                     if ($servicios->num_rows > 0) {
                                         while ($row = $servicios->fetch_assoc()) {
+                                            $selected = ' ';
                                             $idServicio = $row["idservicio"];
                                             $nombreServicio = $row["tiposervicio"];
-                                            echo '<option class="bg-light" value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                            if ($idServicio == $servicio){
+                                                $selected = 'selected="selected"';
+                                            }
+                                            echo '<option class="bg-light" '.$selected.' value="' . $idServicio . '">' . $nombreServicio . '</option>';
                                         }
                                     } else {
                                         echo "No se encontraron servicios.";
@@ -83,7 +123,7 @@ if (isset($_SESSION['email'])) {
                     <div class="col-6">
                         <div class="form-group">
                             <label class="control-label">Fecha</label>
-                            <input type="date" name="fecha" id="fecha" placeholder="DD/MM/AAAA" class="form-control required" min=<?php $hoy = date("Y-m-d");
+                            <input type="date" name="fecha" id="fecha" placeholder="DD/MM/AAAA" value="<?php print($fecha);?>" class="form-control required" min=<?php $hoy = date("Y-m-d");
                                                                                                                                     echo $hoy; ?>>
                         </div>
                     </div>
@@ -91,26 +131,16 @@ if (isset($_SESSION['email'])) {
                         <div class="form-group">
                             <label class="control-label">Hora</label><!--ESTO SE PUEDE COMPLETAR CON UN CICLO FOR DE PHP????-->
                             <select id="horas" name="horas" class="form-control required">
-                                <option value="10:00" class="bg-light">10:00</option>
-                                <option value="10:30" class="bg-light">10:30</option>
-                                <option value="11:00" class="bg-light">11:00</option>
-                                <option value="11:30" class="bg-light">11:30</option>
-                                <option value="12:00" class="bg-light">12:00</option>
-                                <option value="12:30" class="bg-light">12:30</option>
-                                <option value="13:00" class="bg-light">13:00</option>
-                                <option value="13:30" class="bg-light">13:30</option>
-                                <option value="14:00" class="bg-light">14:00</option>
-                                <option value="14:30" class="bg-light">14:30</option>
-                                <option value="15:00" class="bg-light">15:00</option>
-                                <option value="15:30" class="bg-light">15:30</option>
-                                <option value="16:00" class="bg-light">16:00</option>
-                                <option value="16:30" class="bg-light">16:30</option>
-                                <option value="17:00" class="bg-light">17:00</option>
-                                <option value="17:30" class="bg-light">17:30</option>
-                                <option value="18:00" class="bg-light">18:00</option>
-                                <option value="18:30" class="bg-light">18:30</option>
-                                <option value="19:00" class="bg-light">19:00</option>
-                                <option value="19:30" class="bg-light">19:30</option>
+                            <?php
+                                $array = array('10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30');
+                                foreach ($array as $value) {
+                                    $selected = '';
+                                    if ($value == $hora){
+                                        $selected = 'selected="selected"';
+                                    }
+                                    print ('<option value="'.$value.'" class="bg-light"'.$selected.'>'.$value.'</option>');
+                                }
+                            ?>
                             </select>
                         </div>
                     </div>

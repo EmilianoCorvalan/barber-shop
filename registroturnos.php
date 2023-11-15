@@ -2,9 +2,14 @@
 //session_start();
 include('conexion.php');
 $date ="'".date('Y-m-d')."'";
-$new_query = "SELECT turnos.idturno, turnos.fecha, turnos.time, turnos.idservicio, servicios.tiposervicio, turnos.cod_area, turnos.telefono, 
-                turnos.mail, usuarios.nombre, usuarios.apellido FROM turnos, usuarios,servicios 
-                WHERE turnos.mail = usuarios.mail AND turnos.idservicio=servicios.idservicio AND turnos.fecha = $date ORDER BY turnos.time ASC";
+
+$new_query = "SELECT turnos.idturno, turnos.fecha, turnos.time, turnos.idservicio, servicios.tiposervicio, 
+            turnos.cod_area, turnos.telefono, turnos.mail, usuarios.nombre, usuarios.apellido, 
+            barberos.nombre AS b1, barberos.apellido AS b2 FROM turnos 
+            JOIN usuarios ON turnos.mail = usuarios.mail 
+            JOIN servicios ON turnos.idservicio=servicios.idservicio 
+            JOIN barberos ON turnos.idbarbero = barberos.idbarbero
+            WHERE turnos.fecha = $date ORDER BY turnos.time ASC";
 $query = $conn->query($new_query);
 
 ?>
@@ -21,7 +26,7 @@ $query = $conn->query($new_query);
                 <thead>
                     <td scope="col">Id</td>
                     <td scope="col">Hora</td>
-                    <td scope="col">Email</td>
+                    <td scope="col">Barbero</td>
                     <td scope="col">Nombre</td>
                     <td scope="col">Apellido</td>
                     <td scope="col">Servicio</td>
@@ -33,10 +38,11 @@ $query = $conn->query($new_query);
                     <?php
                         while ($fila = mysqli_fetch_array($query)){
                             $idturno = $fila['idturno'];
+                            $barb = $fila['b1']." ".$fila['b2'];
                             echo "<tr>
                                 <td>".$fila['idturno']."</td>
                                 <td>".$fila['time']."</td>
-                                <td>".$fila['mail']."</td>
+                                <td>".$barb."</td>
                                 <td>".$fila['nombre']."</td>
                                 <td>".$fila['apellido']."</td>
                                 <td>".$fila['tiposervicio']."</td>
