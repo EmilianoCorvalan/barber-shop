@@ -1,5 +1,5 @@
 <?php
-include ("./headerInformes.php");
+include("./headerInformes.php");
 include('../conexion.php');
 
 $idbarbero = $_POST['barbero'];
@@ -11,7 +11,7 @@ $new_query = "SELECT turnos.fecha, turnos.time, turnos.mail, servicios.tiposervi
             WHERE turnos.idbarbero = $idbarbero ORDER BY turnos.fecha ASC, turnos.time ASC";
 $query = $conn->query($new_query);
 
-$total_query ="SELECT SUM(servicios.valor) AS total FROM turnos 
+$total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
             JOIN usuarios ON turnos.mail = usuarios.mail 
             JOIN servicios ON turnos.idservicio = servicios.idservicio 
             JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
@@ -34,35 +34,53 @@ $query2 = $conn->query($total_query);
             <td scope="col">Nombre</td>
             <td scope="col">Apellido</td>
             <td scope="col">Servicio</td>
-            <td scope="col">Valor</td> 
+            <td scope="col">Valor</td>
         </thead>
         <tbody>
             <?php
-                while ($fila = mysqli_fetch_array($query)){
-                    echo "<tr class='fila'>
-                        <td>".$fila['fecha']."</td>
-                        <td>".$fila['time']."</td>
-                        <td>".$fila['mail']."</td>
-                        <td>".$fila['nombre']."</td>
-                        <td>".$fila['apellido']."</td>
-                        <td>".$fila['tiposervicio']."</td>
-                        <td class='numeracion'>".$fila['valor']."</td>";
-                }
+            while ($fila = mysqli_fetch_array($query)) {
+                echo "<tr class='fila'>
+                        <td>" . $fila['fecha'] . "</td>
+                        <td>" . $fila['time'] . "</td>
+                        <td>" . $fila['mail'] . "</td>
+                        <td>" . $fila['nombre'] . "</td>
+                        <td>" . $fila['apellido'] . "</td>
+                        <td>" . $fila['tiposervicio'] . "</td>
+                        <td class='numeracion'>" . $fila['valor'] . "</td>";
+            }
             ?><br>
-            <?php 
-                $total = mysqli_fetch_row($query2);
-                echo "<tr>
+            <?php
+            $total = mysqli_fetch_row($query2);
+            echo "<tr>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class='numeracion total'>".$total[0]."</td>
+                        <td class='numeracion total'>" . $total[0] . "</td>
                     </tr>";
             ?>
-  
+
         </tbody>
     </table>
+
+    <button id="printButton" style="padding: 10px 15px;
+                                    font-size: 14px;
+                                    background-color: #fff;
+                                    color: #000;
+                                    border: 1px solid #000;
+                                    cursor: pointer;
+                                    margin: 2rem;
+                                    display: block;
+                                    margin: 15px auto;" 
+                                    onmouseover="this.style.backgroundColor='#000'; this.style.color='#fff';"
+                                    onmouseout="this.style.backgroundColor='#fff'; this.style.color='#000';">
+        Imprimir</button>
 </div>
 
+<script>
+    document.getElementById('printButton').addEventListener('click', function() {
+        window.print();
+    });
+</script>
