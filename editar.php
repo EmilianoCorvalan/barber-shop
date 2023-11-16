@@ -83,7 +83,9 @@ if (isset($_SESSION['email'])) {
                                             if ($idbarbero == $barbero){
                                                 $selected = 'selected="selected"';
                                             }
-                                            echo '<option class="bg-light" '.$selected.' value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                            if ($idbarbero != '999'){
+                                                echo '<option class="bg-light" '.$selected.' value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                            }
                                         }
                                     } else {
                                         echo "No se encontraron servicios.";
@@ -106,7 +108,9 @@ if (isset($_SESSION['email'])) {
                                             if ($idServicio == $servicio){
                                                 $selected = 'selected="selected"';
                                             }
-                                            echo '<option class="bg-light" '.$selected.' value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                            if ($idServicio != '999'){
+                                                echo '<option class="bg-light" '.$selected.' value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                            }
                                         }
                                     } else {
                                         echo "No se encontraron servicios.";

@@ -3,24 +3,14 @@ include("./headerInformes.php");
 include('../conexion.php');
 
 $idServicio = $_POST['servicio'];
-if ($idServicio =='999'){
-    $new_query = "SELECT turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor FROM turnos 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        ORDER BY turnos.fecha ASC, turnos.time ASC";
-    $total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio ";
-} else {
-    $new_query = "SELECT turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor FROM turnos 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        WHERE servicios.idservicio = $idServicio ORDER BY turnos.fecha ASC, turnos.time ASC";
-    $total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        WHERE servicios.idservicio = $idServicio";
-}
-
+$new_query = "SELECT turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor FROM turnos 
+            JOIN servicios ON turnos.idservicio = servicios.idservicio 
+            WHERE servicios.idservicio = $idServicio ORDER BY turnos.fecha ASC, turnos.time ASC";
 $query = $conn->query($new_query);
 
-
+$total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
+            JOIN servicios ON turnos.idservicio = servicios.idservicio 
+            WHERE servicios.idservicio = $idServicio";
 $query2 = $conn->query($total_query);
 
 //TOTAL SERVICIOS REALIZADOS 

@@ -23,6 +23,9 @@ if (empty($fecha2)) {
     } else if ($cuanto == "mes") {
         $intervalo = new DateInterval('P1M');
         $auxFecha->add($intervalo);
+    } else if ($cuanto == "anio"){
+        $intervalo = new DateInterval('P12M');
+        $auxFecha->add($intervalo);
     }
     $fFinal = $auxFecha->format('Y-m-d');
 } else {

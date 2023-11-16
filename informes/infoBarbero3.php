@@ -3,32 +3,19 @@ include("./headerInformes.php");
 include('../conexion.php');
 
 $idbarbero = $_POST['barbero'];
-if ($idbarbero == '999'){
-    $new_query = "SELECT turnos.fecha, turnos.time, turnos.mail, servicios.tiposervicio, servicios.valor, 
-        barberos.nombre, barberos.apellido FROM turnos 
-        JOIN usuarios ON turnos.mail = usuarios.mail 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
-        ORDER BY turnos.fecha ASC, turnos.time ASC";
-$total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
-        JOIN usuarios ON turnos.mail = usuarios.mail 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        JOIN barberos ON turnos.idbarbero = barberos.idbarbero";
-} else {
-    $new_query = "SELECT turnos.fecha, turnos.time, turnos.mail, servicios.tiposervicio, servicios.valor, 
-        barberos.nombre, barberos.apellido FROM turnos 
-        JOIN usuarios ON turnos.mail = usuarios.mail 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
-        WHERE turnos.idbarbero = $idbarbero ORDER BY turnos.fecha ASC, turnos.time ASC";
-    $total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
-        JOIN usuarios ON turnos.mail = usuarios.mail 
-        JOIN servicios ON turnos.idservicio = servicios.idservicio 
-        JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
-        WHERE turnos.idbarbero = $idbarbero";
-}
-
+$new_query = "SELECT turnos.fecha, turnos.time, turnos.mail, servicios.tiposervicio, servicios.valor, 
+            barberos.nombre, barberos.apellido FROM turnos 
+            JOIN usuarios ON turnos.mail = usuarios.mail 
+            JOIN servicios ON turnos.idservicio = servicios.idservicio 
+            JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
+            WHERE turnos.idbarbero = $idbarbero ORDER BY turnos.fecha ASC, turnos.time ASC";
 $query = $conn->query($new_query);
+
+$total_query = "SELECT SUM(servicios.valor) AS total FROM turnos 
+            JOIN usuarios ON turnos.mail = usuarios.mail 
+            JOIN servicios ON turnos.idservicio = servicios.idservicio 
+            JOIN barberos ON turnos.idbarbero = barberos.idbarbero 
+            WHERE turnos.idbarbero = $idbarbero";
 $query2 = $conn->query($total_query);
 
 //SERVICIOS HECHOS POR BARBERO

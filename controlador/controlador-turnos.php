@@ -4,8 +4,8 @@ if(!empty($_POST['btnTurno'])){
         empty($_POST['telefono']) or
         empty($_POST['servicio']) or
         empty($_POST['fecha']) or
-        empty($_POST['horas'])or
-        empty($_POST['barbero']))
+        empty($_POST['horas']))//or
+        //empty($_POST['barbero']))
         {
         echo '<div class="alert alert-danger container mt-4">Uno o mas campos estan vacios</div>';
         /*var_dump($_POST);

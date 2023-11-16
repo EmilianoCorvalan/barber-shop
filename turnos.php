@@ -64,7 +64,9 @@ if (isset($_SESSION['email'])) {
                                         while ($row = $barberos->fetch_assoc()) {
                                             $idbarbero = $row["idbarbero"];
                                             $nombrebarbero = $row["nombre"]." ".$row['apellido'];
-                                            echo '<option class="bg-light" value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                            if ($idbarbero != '999'){
+                                                echo '<option class="bg-light" value="' . $idbarbero . '">' . $nombrebarbero . '</option>';
+                                            }
                                         }
                                     } else {
                                         echo "No se encontraron barberos.";
@@ -82,7 +84,9 @@ if (isset($_SESSION['email'])) {
                                         while ($row = $servicios->fetch_assoc()) {
                                             $idServicio = $row["idservicio"];
                                             $nombreServicio = $row["tiposervicio"];
-                                            echo '<option class="bg-light" value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                            if ($idServicio != '999'){
+                                                echo '<option class="bg-light" value="' . $idServicio . '">' . $nombreServicio . '</option>';
+                                            }
                                         }
                                     } else {
                                         echo "No se encontraron servicios.";
