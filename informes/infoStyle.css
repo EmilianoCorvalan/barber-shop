@@ -1,18 +1,21 @@
-body{
+/*html {
+  background-color: #121519;
+  color: #fafafa;
+  font-family: "Barlow Condensed", Verdana, Arial, Tahoma, sans-serif;
+  scroll-behavior: smooth;
+}/*
+
+/*body{
     margin: 5%;
     padding: auto;
-}
+}*/
 
-div {
-    /*width: 80%;*/
-}
-
-thead{
+/*thead{
     border: 2px, solid gray;
     background-color: darkgrey;
     font-weight: bold;
-}
-
+}*/
+/*
 .fila{
     border: 1px solid darkgrey;
 }
@@ -42,11 +45,11 @@ table, th td {
 }
 
 .subTit{
-    /*width: 80%;*/
+    /*width: 80%;*//*
     font-weight: bolder;
     text-align: center;
 }
 .bloque{
-    /*width: 72%;*/
+    /*width: 72%;*//*
     background-color: darkgrey;
-}
+}*/
