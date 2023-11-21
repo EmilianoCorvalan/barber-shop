@@ -4,11 +4,23 @@ include('conexion.php');
 include('header.php');
 
 if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    $historial = $conn->query("SELECT turnos.idturno, turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor
-                              FROM turnos
-                              JOIN servicios ON turnos.idservicio = servicios.idservicio
-                              WHERE turnos.mail = '$email'");
+    if ($_SESSION['nivel']=='3'){
+        //Buscamos el idbarbero del usuario registrado con el nombre y apellido de la sesion
+        $nombre = $_SESSION['nombre'];
+        $apellido = $_SESSION['apellido'];
+        $queryBarbero = "SELECT idbarbero FROM barberos WHERE (nombre = '".$nombre."' AND apellido = '".$apellido."')";   
+        $query = $conn->query($queryBarbero);
+        $idbarbero = mysqli_fetch_row($query);
+        $historial = $conn->query("SELECT turnos.idturno, turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor
+                                    FROM turnos JOIN servicios ON turnos.idservicio = servicios.idservicio
+                                    WHERE turnos.idbarbero = ".$idbarbero[0]);
+    } else {
+        $email = $_SESSION['email'];
+        $historial = $conn->query("SELECT turnos.idturno, turnos.fecha, turnos.time, servicios.tiposervicio, servicios.valor
+                                FROM turnos
+                                JOIN servicios ON turnos.idservicio = servicios.idservicio
+                                WHERE turnos.mail = '$email'");
+    }
 ?>
 <div class="container-fluid first main-font">
     <h4 class="text-white text-center mt-2">Bienvenido <?php echo ucfirst($_SESSION['nombre']);?></h4>
