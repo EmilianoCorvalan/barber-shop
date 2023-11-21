@@ -62,33 +62,46 @@
                 aria-current="page"
                 >Inicio</a>
               </li>
-            <?php } ?>
+            <?php } //REVISAR ESTO
+              if (!isset($_SESSION['email']) or $_SESSION['nivel'] !='3') {
+              ?>
             <li class="nav-item">
               <a href="servicios.php" class="nav-link text-white links-hover">Servicios</a>
             </li>
+            
             <li class="nav-item">
               <a href="turnos.php" class="nav-link text-white links-hover">Turnos</a>
             </li>
+            
             <li class="nav-item">
-              <a href="trabajos.php" class="nav-link text-white links-hover"
-                >Nuestros trabajos</a>
+              <a href="trabajos.php" class="nav-link text-white links-hover">Nuestros trabajos</a>
             </li>
-            <?php 
+            <?php } //REVISAR ESTO
               if (isset($_SESSION['email'])) {
               ?>
             </li>
             <li class="nav-item">
               <a href="historial.php" class="nav-link text-white links-hover">Historial</a>
             </li>
-            <?php } ?>
+            <?php }  //REVISAR ESTO
+              if (isset($_SESSION['email']) && $_SESSION['nivel'] !='3') {
+              ?>
             <li class="nav-item">
               <a href="contacto.php" class="nav-link text-white links-hover">Contacto</a>
-            <?php  
+            <?php } 
               if (isset($_SESSION['email']) && $_SESSION['nivel']==='2') {
             ?>  
             </li>
             <li class="nav-item">
               <a href="admin.php" class="nav-link text-white links-hover">Panel de control</a>
+            </li>
+            <?php } ?>
+            <?php  // NUEVA PAGINA DE BARBERO PARA VER SUS TURNOS 
+              if (isset($_SESSION['email']) && $_SESSION['nivel']==='3') {
+            ?>  
+            </li>
+            <li class="nav-item">
+              <a href="misTurnos.php" class="nav-link text-white links-hover">Mis Turnos</a>
             </li>
             <?php } ?>
             <?php 
