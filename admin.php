@@ -40,7 +40,7 @@ include('header.php') ?>
         </div>
         <div class="contenido" id="informes2" style="display:none;">
             <!-- Contenido de la página informes2 -->
-            <?php include('vistaadministracion/informesMain2.php')?>
+            <?php include('./informesMain2.php')?>
         </div>
     </div>
 </div>
