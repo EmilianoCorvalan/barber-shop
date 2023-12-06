@@ -15,13 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnAgregarSucursal"]))
     if ($stmt->execute() === TRUE) {
         echo "<script>
                 alert('Sucursal agregada con éxito.
-                 Será redigido al panel de control');
+                 Será redirigido al panel de control');
                 window.location.href = 'admin.php';
               </script>";
     } else {
         echo "<script>
                 alert('Error al agregar la sucursal.
-                 Será redigido al panel de control');
+                 Será redirigido al panel de control');
                 window.location.href = 'admin.php';
               </script>";
     }
