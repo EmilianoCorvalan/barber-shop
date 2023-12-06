@@ -50,8 +50,8 @@ $query = $conn->query($new_query);
                         <td scope="col">Id</td>
                         <td scope="col">Hora</td>
                         <td scope="col">Barbero</td>
-                        <td scope="col">Nombre</td>
-                        <td scope="col">Apellido</td>
+                        <td scope="col">Nombre cliente</td>
+                        <td scope="col">Apellido cliente</td>
                         <td scope="col">Servicio</td>
                         <td scope="col">Codigo de area</td>
                         <td scope="col">Telefono</td>
@@ -66,8 +66,8 @@ $query = $conn->query($new_query);
                                     <td>".$fila['idturno']."</td>
                                     <td>".$fila['time']."</td>
                                     <td>".$barb."</td>
-                                    <td>".$fila['nombre']."</td>
-                                    <td>".$fila['apellido']."</td>
+                                    <td>".ucfirst($fila['nombre'])."</td>
+                                    <td>".ucfirst($fila['apellido'])."</td>
                                     <td>".$fila['tiposervicio']."</td>
                                     <td>".$fila['cod_area']."</td>
                                     <td>".$fila['telefono'].'</td>
